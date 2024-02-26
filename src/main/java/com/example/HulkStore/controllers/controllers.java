@@ -2,22 +2,21 @@ package com.example.HulkStore.controllers;
 
 import com.example.HulkStore.models.Producto;
 import com.example.HulkStore.repository.ProductoRepository;
+import com.example.HulkStore.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 public class controllers {
     @Autowired
     private ProductoRepository productoRepository;
+    private IProductoService productoService;
 
     @GetMapping()
     public String index(){
-        return "¡¡¡CONEXCION EXITOSA!!!";
+        return "¡¡¡CONEXION EXITOSA!!!";
     }
 
     @PostMapping("/productos")
@@ -47,13 +46,8 @@ public class controllers {
     }
 
     @DeleteMapping("/productos/{id}")
-    public Map<String, Boolean> eliminarProducto(@PathVariable Long id) {
-        Producto producto = productoRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "Producto no encontrado con id: " + id));
-        productoRepository.delete(producto);
-        Map<String, Boolean> respuesta = new HashMap<>();
-        respuesta.put("eliminado", Boolean.TRUE);
-        return respuesta;
+    public void eliminarProducto(@PathVariable Long id) {
+        productoService.deleteProduct(id);
     }
 }
 
