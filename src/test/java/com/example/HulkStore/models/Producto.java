@@ -14,8 +14,14 @@ public class Producto {
     @Getter
     @Setter
     private  Long id;
+    @Getter
+    @Setter
     private String nombre;
+    @Getter
+    @Setter
     private double precio;
+    @Getter
+    @Setter
     private int stock;
 }
 

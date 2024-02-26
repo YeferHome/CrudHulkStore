@@ -1,19 +1,13 @@
 package com.example.HulkStore.models;
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
-import javax.annotation.processing.Generated;
+import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class shoppingCart {
     @Id
-    @Generated(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappeBy = "shoppingCart")
+    @OneToMany(mappedBy = "shoppingCart")
     private List<Producto> productos;
     @ManyToOne
     private Usuario usuario;
