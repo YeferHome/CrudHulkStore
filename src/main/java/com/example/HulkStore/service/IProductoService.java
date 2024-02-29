@@ -6,8 +6,16 @@ import java.util.List;
 
 public interface IProductoService {
 
-    void deleteProduct(Long id);
-    
+    void createproducto(Producto producto);
+
+    Producto findProductoById(Long producto_Id);
+
+    List<Producto> findAllProducto();
+
+    void updateProducto(Long producto_Id, Producto updatedProducto);
+
+    void deleteProduct(Long producto_Id);
+
 
 }
 
