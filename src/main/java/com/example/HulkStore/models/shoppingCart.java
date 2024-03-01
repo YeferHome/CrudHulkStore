@@ -16,10 +16,10 @@ public class shoppingCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+/*
     @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.ALL)
     private List<Producto> productos;
 
     @OneToOne
-    private Usuario usuario;
+    private Usuario usuario;*/
 }

@@ -13,7 +13,7 @@ public interface IUsuarioService  {
 
     List<Usuario> findAllUsuarios();
 
-    void updateUsuario(Long usuario_Id, Usuario updateProducto);
+    void updateUsuario(Long usuario_Id, RequestUsuarioDTO updateUsuarioDTO);
 
     void deleteUsuario(Long usuario_Id);
 

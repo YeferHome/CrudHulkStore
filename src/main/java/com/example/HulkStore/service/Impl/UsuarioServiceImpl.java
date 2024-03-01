@@ -3,12 +3,9 @@ package com.example.HulkStore.service.Impl;
 import com.example.HulkStore.DTO.RequestUsuarioDTO;
 import com.example.HulkStore.mapper.RequestMapperDto;
 import com.example.HulkStore.models.Usuario;
-import com.example.HulkStore.models.shoppingCart;
-import com.example.HulkStore.repository.ShoppingCartRepository;
 import com.example.HulkStore.repository.UsuarioRepository;
 import com.example.HulkStore.service.IUsuarioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +15,7 @@ import java.util.List;
 public class UsuarioServiceImpl implements IUsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final RequestMapperDto requestMapperDto;
 
     @Override
     public void crearusuario(RequestUsuarioDTO requestUsuarioDTO) {
@@ -36,14 +34,14 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public void updateUsuario(Long usuario_Id, Usuario updateUsuario) {
-        Usuario nuevoUsuario = usuarioRepository.findById(usuario_Id).orElse(null);
-        nuevoUsuario.setId(updateUsuario.getId());
-        nuevoUsuario.setUsername(updateUsuario.getUsername());
-        nuevoUsuario.setPassword(updateUsuario.getPassword());
-        usuarioRepository.save(nuevoUsuario);
-    }
+    public void updateUsuario(Long usuario_Id, RequestUsuarioDTO updateUsuarioDTO) {
+        Usuario usuario = usuarioRepository.findById(usuario_Id).orElse(null);
+            Usuario usuarioActualizado = requestMapperDto.dtoToRequestDto(updateUsuarioDTO);
+            usuario.setUsername(usuarioActualizado.getUsername());
+            usuario.setPassword(usuarioActualizado.getPassword());
+            usuarioRepository.save(usuario);
 
+    }
     @Override
     public void deleteUsuario(Long usuario_Id) {
         usuarioRepository.deleteById(usuario_Id);

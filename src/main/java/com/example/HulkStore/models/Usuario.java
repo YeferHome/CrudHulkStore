@@ -18,12 +18,13 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String username;
     private String password;
-
+/*
     //un usuario conectado con un carrito
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private shoppingCart shoppingCart;
-
+*/
 
 }

@@ -2,6 +2,7 @@ package com.example.HulkStore.controllers;
 
 import com.example.HulkStore.models.Producto;
 import com.example.HulkStore.service.IProductoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/producto")
 public class ProductoControllers {
-
+    @Autowired
     private IProductoService productoService;
 
     @GetMapping("/productos")
@@ -23,8 +24,8 @@ public class ProductoControllers {
     }
 
     @PostMapping("/crearproducto")
-    public void createproducto(@PathVariable Long usuarioId, @RequestBody Producto producto) {
-        productoService.createproducto(usuarioId, producto);
+    public void createproducto(@RequestBody Producto producto) {
+        productoService.createproducto(producto);
     }
 
     @PutMapping("/editar/{producto_Id}")

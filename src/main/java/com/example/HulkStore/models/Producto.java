@@ -24,11 +24,13 @@ public class Producto {
     private double precio;
 
     private int stock;
-
+/*
     @ManyToOne
     @JoinColumn(name = "shopping_cart_id")
     private shoppingCart shoppingCart;
-/*
+*/
+
+ /*
     @ManyToOne
     @JoinColumn(name = "Usuario")
     private Usuario usuario;
@@ -38,6 +40,7 @@ public class Producto {
             name = "usuario_producto",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-    Set<Usuario> usuarios;*/
+    Set<Usuario> usuarios;
+    */
 }
 
