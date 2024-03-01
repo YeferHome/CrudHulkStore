@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductoService {
 
-    void createproducto(Producto producto);
+    void createproducto(Long usuarioId, Producto producto);
 
     Producto findProductoById(Long producto_Id);
 

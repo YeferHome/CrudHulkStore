@@ -1,5 +1,6 @@
 package com.example.HulkStore.controllers;
 
+import com.example.HulkStore.DTO.RequestUsuarioDTO;
 import com.example.HulkStore.models.Usuario;
 import com.example.HulkStore.service.IUsuarioService;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,8 @@ public class UsuarioControllers {
     }
 
     @PostMapping("/crearusuario")
-    public void crearusuario(@RequestBody Usuario usuario){
-        UsuarioServicio.crearusuario(usuario);
+    public void crearusuario(@RequestBody RequestUsuarioDTO requestUsuarioDTO){
+        UsuarioServicio.crearusuario(requestUsuarioDTO);
     }
     @PutMapping("/editarusuario/{Usuario_Id}")
     public void updateUsuario(@PathVariable Long usuario_Id, @RequestBody Usuario usuario){

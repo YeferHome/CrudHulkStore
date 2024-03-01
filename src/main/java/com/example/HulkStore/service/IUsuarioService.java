@@ -1,12 +1,13 @@
 package com.example.HulkStore.service;
 
+import com.example.HulkStore.DTO.RequestUsuarioDTO;
 import com.example.HulkStore.models.Usuario;
 
 import java.util.List;
 
-public interface IUsuarioService {
+public interface IUsuarioService  {
 
-    void crearusuario(Usuario usuario);
+    void crearusuario(RequestUsuarioDTO requestUsuarioDTO);
 
     Usuario findUsuarioById(Long Usuario_id);
 

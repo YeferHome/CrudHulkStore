@@ -23,8 +23,8 @@ public class ProductoControllers {
     }
 
     @PostMapping("/crearproducto")
-    public void createproducto(@RequestBody Producto producto) {
-        productoService.createproducto(producto);
+    public void createproducto(@PathVariable Long usuarioId, @RequestBody Producto producto) {
+        productoService.createproducto(usuarioId, producto);
     }
 
     @PutMapping("/editar/{producto_Id}")
